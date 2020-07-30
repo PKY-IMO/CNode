@@ -1,11 +1,16 @@
 # FineUI-Start
 
 ## 安装运行
-`git clone --recursive https://git.fanruan.com/dailer/FineUI-Start.git`
+`git clone ssh://git@code.fineres.com:7999/fui/fineui-starter.git`
 
-`npm install`
+## 安装依赖
+`yarn install`
 
-`npm run grunt`
+## 打开dev模式
+`yarn start`
+
+## 打包
+`yarn build`
 
 ## 示例效果
 ![](./screenshorts/todolist.gif)

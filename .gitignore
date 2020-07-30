@@ -47,3 +47,7 @@ crashlytics.properties
 crashlytics-build.properties
 
 /node_modules/
+
+/dist
+package-lock.json
+yarn.lock

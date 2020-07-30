@@ -1,7 +1,6 @@
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
@@ -40,8 +39,6 @@ module.exports = merge.smart(common, {
         }),
         new webpack.BannerPlugin({
             banner: `time: ${new Date().toLocaleString()}`,
-        }),
-        new ForkTsCheckerWebpackPlugin({
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
