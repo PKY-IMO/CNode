@@ -1,3 +1,1 @@
-const config = require("./node_modules/fineui/babel.config.ie8");
-
-module.exports = config;
+module.exports = require('@fui/babel-preset-fineui').configs.ie8;

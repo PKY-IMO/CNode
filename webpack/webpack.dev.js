@@ -2,7 +2,6 @@ const merge = require("webpack-merge");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const dirs = require("./dirs");
@@ -32,9 +31,6 @@ module.exports = merge(common, {
             chunks: ["bundle"],
             chunksSortMode: "manual",
             nodeModules: path.resolve(__dirname, "../node_modules"),
-        }),
-        new ForkTsCheckerWebpackPlugin({
-            watch: ["./typescript"],
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,

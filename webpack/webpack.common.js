@@ -6,18 +6,18 @@ const dirs = require("./dirs");
 module.exports = {
     entry: {
         bundle: [
-            "./src/index.ts",
+            "./src/index.js",
         ],
     },
     resolve: {
         mainFields: ["module", "main"],
-        extensions: [".js", ".ts"],
+        extensions: [".js"],
     },
     module: {
         rules: [
             {
-                test: /\.(js|ts)$/,
-                include: [dirs.NODE_MODULES, dirs.PRIVATE, dirs.TYPESCRIPT, dirs.SRC],
+                test: /\.(js)$/,
+                include: [dirs.NODE_MODULES, dirs.SRC],
                 use: [{
                     loader: "babel-loader",
                     options: {

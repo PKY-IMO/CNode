@@ -5,6 +5,5 @@ module.exports = {
     PRIVATE: path.resolve(__dirname, "../private"),
     BABEL_CONFIG: path.resolve(__dirname, "../babel.config.js"),
     IE8_BABEL_CONFIG: path.resolve(__dirname, "../babel.config.ie8.js"),
-    TYPESCRIPT: path.resolve(__dirname, "../typescript"),
     SRC: path.resolve(__dirname, "../src"),
 };
