@@ -11,12 +11,16 @@ module.exports = {
     },
     resolve: {
         mainFields: ["module", "main"],
-        extensions: [".js"],
+        extensions: [".js", ".ts"],
+    },
+    stats: {
+        children: false,
+        modules: false,
     },
     module: {
         rules: [
             {
-                test: /\.(js)$/,
+                test: /\.(js|ts)$/,
                 include: [dirs.NODE_MODULES, dirs.SRC],
                 use: [{
                     loader: "babel-loader",

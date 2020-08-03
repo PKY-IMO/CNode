@@ -1,14 +1,18 @@
-import { shortcut } from "../../core/decorator";
-import { VerticalXtype, LabelXtype, CenterAdaptXtype, MultiSelectItemXtype, VerticalAdaptXtype } from "../../core/ui";
+import { shortcut } from "../../core/typescript/decorator";
+import { VerticalXtype, LabelXtype, CenterAdaptXtype, MultiSelectItemXtype, VerticalAdaptXtype } from "../../core/typescript/ui";
 import "./list.less";
 
 @shortcut()
 export class List extends BI.Widget {
     static xtype = "my.todolist.list";
 
+    private count: any;
+    private list: any;
+
     props = {
         baseCls: "my-todolist-list",
         text: "正在进行",
+        items: [],
     }
 
     render() {
@@ -37,10 +41,10 @@ export class List extends BI.Widget {
                                     {
                                         el: {
                                             type: LabelXtype,
-                                            ref: _ref => {
+                                            ref: (_ref: any) => {
                                                 this.count = _ref;
                                             },
-                                            text: "0",
+                                            text: 0,
                                         },
                                     },
                                 ],
@@ -50,39 +54,43 @@ export class List extends BI.Widget {
                 }, {
                     type: VerticalXtype,
                     vgap: 10,
-                    ref: _ref => {
+                    ref: (_ref: any) => {
                         this.list = _ref;
                     },
-                    items: this._createItems(items),
+                    items: this.createItems(items),
                 },
             ],
         };
     }
 
-    _createItems(items) {
-        return BI.map(items, (index, item) =>
-            BI.extend(item, {
+    private createItems(items: Item[]) {
+        return items.map(item => {
+            return BI.extend(item, {
                 type: MultiSelectItemXtype,
                 selected: item.done,
                 disabled: item.done,
                 listeners: [
                     {
                         eventName: "EVENT_CHANGE",
-                        action: v => {
+                        action: (v: any) => {
                             this.fireEvent("EVENT_CHANGE", v);
                         },
                     },
                 ],
-            }),
-        );
+            });
+        })
     }
 
-    _setCount(count) {
+    private setCount(count: number) {
         this.count.setText(count);
     }
 
-    populate(items) {
-        this.list.populate(this._createItems(items));
-        this._setCount(items.length);
+    populate(items: []) {
+        this.list.populate(this.createItems(items));
+        this.setCount(items.length);
     }
+}
+
+interface Item {
+    done: boolean,
 }
