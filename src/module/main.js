@@ -1,5 +1,5 @@
-import { shortcut } from "../core/decorator";
-import { VtapeXtype, HorizontalAutoXtype } from "../core/ui";
+import { shortcut } from "../core/javascript/decorator";
+import { VtapeXtype, HorizontalAutoXtype } from "../core/javascript/ui";
 import { ToDoListHeader } from "./header/header";
 import { List } from "./list/list";
 import "./main.less";

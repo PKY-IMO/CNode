@@ -3,6 +3,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const dirs = require("./dirs");
 
@@ -17,11 +18,14 @@ module.exports = merge(common, {
         filename: "[name].[contenthash].js",
     },
     devServer: {
+        open: true,
         contentBase: path.join(__dirname, ".."),
         port: 9002,
         liveReload: true,
     },
     plugins: [
+        new ForkTsCheckerWebpackPlugin({
+        }),
         new MiniCssExtractPlugin({
             path: dirs.DEST,
             filename: "[contenthash].css",

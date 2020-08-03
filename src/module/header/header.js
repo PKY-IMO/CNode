@@ -1,5 +1,5 @@
-import { shortcut } from "../../core/decorator";
-import { HorizontalAutoXtype, LeftRightVerticalAdaptLayoutXtype, LabelXtype, EditorXtype } from "../../core/ui";
+import { shortcut } from "../../core/javascript/decorator";
+import { HorizontalAutoXtype, LeftRightVerticalAdaptLayoutXtype, LabelXtype, EditorXtype } from "../../core/javascript/ui";
 import "./header.less";
 
 @shortcut()

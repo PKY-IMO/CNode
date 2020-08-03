@@ -3,6 +3,7 @@ const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const dirs = require("./dirs");
 
@@ -33,6 +34,8 @@ module.exports = merge.smart(common, {
     },
 
     plugins: [
+        new ForkTsCheckerWebpackPlugin({
+        }),
         new MiniCssExtractPlugin({
             path: dirs.DEST,
             filename: "bundle.css",

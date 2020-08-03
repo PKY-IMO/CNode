@@ -1,5 +1,5 @@
 {
-  "extends": "plugin:@fui/esnext",
+  "extends": "plugin:@fui/typescript",
   "parserOptions": {
     "ecmaFeatures": {
       "legacyDecorators": true
