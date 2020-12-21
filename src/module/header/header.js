@@ -1,5 +1,4 @@
 import { shortcut } from "../../core/javascript/decorator";
-import { HorizontalAutoXtype, LeftRightVerticalAdaptLayoutXtype, LabelXtype, EditorXtype } from "../../core/javascript/ui";
 import "./header.less";
 
 @shortcut()
@@ -14,17 +13,17 @@ export class ToDoListHeader extends BI.Widget {
         const { height } = this.options;
 
         return {
-            type: HorizontalAutoXtype,
+            type: BI.HorizontalAutoLayout.xtype,
             items: [{
                 el: {
-                    type: LeftRightVerticalAdaptLayoutXtype,
+                    type: BI.LeftRightVerticalAdaptLayout.xtype,
                     width: 600,
                     height: 40,
                     items: {
                         left: [
                             {
                                 el: {
-                                    type: LabelXtype,
+                                    type: BI.Label.xtype,
                                     cls: "my-todolist-title",
                                     text: "FineUI ToDoList",
                                     height,
@@ -34,7 +33,7 @@ export class ToDoListHeader extends BI.Widget {
                         right: [
                             {
                                 el: {
-                                    type: EditorXtype,
+                                    type: BI.Editor.xtype,
                                     ref: _ref => {
                                         this.editor = _ref;
                                     },

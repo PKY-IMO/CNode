@@ -1,3 +1,6 @@
 {
     "extends": "@fui/typescript-configs/application.json",
+    "compilerOptions": {
+        "strict": false,
+    }
 }
