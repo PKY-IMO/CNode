@@ -1,13 +1,13 @@
+import { Label, VerticalLayout } from '@fui/core';
 import { shortcut } from "../../core/typescript/decorator";
-import { VerticalXtype, LabelXtype, CenterAdaptXtype, MultiSelectItemXtype, VerticalAdaptXtype } from "../../core/typescript/ui";
 import "./list.less";
 
 @shortcut()
 export class List extends BI.Widget {
     static xtype = "my.todolist.list";
 
-    private count: any;
-    private list: any;
+    private count: Label;
+    private list: VerticalLayout;
 
     props = {
         baseCls: "my-todolist-list",
@@ -19,29 +19,29 @@ export class List extends BI.Widget {
         const { text, items } = this.options;
 
         return {
-            type: VerticalXtype,
+            type: BI.VerticalLayout.xtype,
             items: [
                 {
                     el: {
-                        type: VerticalAdaptXtype,
+                        type: BI.VerticalAdaptLayout.xtype,
                         height: 40,
                         items: [
                             {
-                                type: LabelXtype,
+                                type: BI.Label.xtype,
                                 cls: "my-todolist-list-text",
                                 textAlign: "left",
                                 text,
                                 width: 580,
                             }, {
-                                type: CenterAdaptXtype,
+                                type: BI.CenterAdaptLayout.xtype,
                                 cls: "my-todolist-list-count-container",
                                 width: 20,
                                 height: 20,
                                 items: [
                                     {
                                         el: {
-                                            type: LabelXtype,
-                                            ref: (_ref: any) => {
+                                            type: BI.Label.xtype,
+                                            ref: (_ref: Label) => {
                                                 this.count = _ref;
                                             },
                                             text: 0,
@@ -52,9 +52,9 @@ export class List extends BI.Widget {
                         ],
                     },
                 }, {
-                    type: VerticalXtype,
+                    type: BI.VerticalLayout.xtype,
                     vgap: 10,
-                    ref: (_ref: any) => {
+                    ref: (_ref: VerticalLayout) => {
                         this.list = _ref;
                     },
                     items: this.createItems(items),
@@ -66,7 +66,7 @@ export class List extends BI.Widget {
     private createItems(items: Item[]) {
         return items.map(item => {
             return BI.extend(item, {
-                type: MultiSelectItemXtype,
+                type: BI.MultiSelectItem.xtype,
                 selected: item.done,
                 disabled: item.done,
                 listeners: [
@@ -82,7 +82,7 @@ export class List extends BI.Widget {
     }
 
     private setCount(count: number) {
-        this.count.setText(count);
+        this.count.setText(`${count}`);
     }
 
     populate(items: []) {

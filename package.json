@@ -8,7 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "fineui": "^2.0.0"
+    "@fui/core": "^2.0.0"
   },
   "devDependencies": {
     "@fui/babel-preset-fineui": "^1.0.0",

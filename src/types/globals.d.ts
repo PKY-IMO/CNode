@@ -2,7 +2,7 @@ interface Obj {
     [key: string]: any;
 }
 
-declare let BI: Obj & import('fineui').BI;
+declare let BI: Obj & import('@fui/core').BI;
 declare const Fix: Obj;
 
 declare interface String {

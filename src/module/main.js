@@ -1,5 +1,4 @@
 import { shortcut } from "../core/javascript/decorator";
-import { VtapeXtype, HorizontalAutoXtype } from "../core/javascript/ui";
 import { ToDoListHeader } from "./header/header";
 import { List } from "./list/list";
 import "./main.less";
@@ -18,7 +17,7 @@ export class ToDoList extends BI.Widget {
 
     render() {
         return {
-            type: VtapeXtype,
+            type: BI.VTapeLayout.xtype,
             items: [
                 {
                     el: {
@@ -35,7 +34,7 @@ export class ToDoList extends BI.Widget {
                     },
                     height: 40,
                 }, {
-                    type: HorizontalAutoXtype,
+                    type: BI.HorizontalAutoLayout.xtype,
                     cls: "my-todolist-background",
                     items: [
                         {
