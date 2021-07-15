@@ -2,5 +2,7 @@
     "extends": "@fui/typescript-configs/application.json",
     "compilerOptions": {
         "strict": false,
-    }
+        "jsx": "react"
+    },
+    "include": ["src/*.ts", "src/*.tsx", "src/**/*.ts", "src/**/*.tsx", "typings"]
 }
