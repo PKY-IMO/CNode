@@ -1,17 +1,19 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const autoprefixer = require("autoprefixer");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const AutoPrefixer = require('autoprefixer');
 
-const dirs = require("./dirs");
+const dirs = require('./dirs');
 
 module.exports = {
     entry: {
-        bundle: [
-            "./src/index.js",
-        ],
+        bundle: ['./src/index.ts'],
     },
     resolve: {
-        mainFields: ["module", "main"],
-        extensions: [".js", ".ts"],
+        mainFields: ['module', 'main'],
+        mainFiles: ['index'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        alias: {
+            '@': dirs.SRC,
+        },
     },
     stats: {
         children: false,
@@ -20,38 +22,41 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|ts)$/,
+                test: /\.(jsx?|tsx?)$/,
                 include: [dirs.NODE_MODULES, dirs.SRC],
-                use: [{
-                    loader: "babel-loader",
-                    options: {
-                        configFile: dirs.BABEL_CONFIG,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            configFile: dirs.BABEL_CONFIG,
+                        },
                     },
-                }, {
-                    loader: "source-map-loader",
-                    options: {
-                        enforce: "pre",
+                    {
+                        loader: 'source-map-loader',
+                        options: {
+                            enforce: 'pre',
+                        },
                     },
-                }],
+                ],
             },
             {
                 test: /\.(css|less)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
-                        loader: "css-loader",
+                        loader: 'css-loader',
                         options: {
                             url: false,
                         },
                     },
                     {
-                        loader: "postcss-loader",
+                        loader: 'postcss-loader',
                         options: {
-                            plugins: [autoprefixer],
+                            plugins: [AutoPrefixer],
                         },
                     },
                     {
-                        loader: "less-loader",
+                        loader: 'less-loader',
                         options: {
                             relativeUrls: false,
                         },

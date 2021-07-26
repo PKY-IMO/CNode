@@ -1,0 +1,25 @@
+@import '~@/index.less';
+
+.my-todolist-list {
+  .my-todolist-list-header {
+    .title {
+      font-size: @font-size-16;
+      font-weight: bold;
+    }
+    .count {
+      .border-radius(100%);
+      color: @font-color-white;
+      .background-color(@background-color-light-black, 100%);
+    }
+  }
+  .my-todolist-list-items {
+    .item {
+      .transition(@transition-duration all);
+      .close {
+        &:hover {
+          color: @font-color-negative;
+        }
+      }
+    }
+  }
+}

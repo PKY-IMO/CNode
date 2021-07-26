@@ -1,8 +1,16 @@
 {
     "extends": "@fui/typescript-configs/application.json",
+    "include": ["src/*.ts", "src/*.tsx", "src/**/*.ts", "src/**/*.tsx", "typings"],
     "compilerOptions": {
+        /* 基本选项 */
+        "jsx": "react",
+        /* 严格的类型检查选项 */
         "strict": false,
-        "jsx": "react"
-    },
-    "include": ["src/*.ts", "src/*.tsx", "src/**/*.ts", "src/**/*.tsx", "typings"]
+        /* 模块解析选项 */
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "typeRoots": ["typings"]
+    }
 }

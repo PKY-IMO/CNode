@@ -1,16 +1,15 @@
-const webpack = require("webpack");
-const merge = require("webpack-merge");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-const dirs = require("./dirs");
-
-const common = require("./webpack.common.js");
+const dirs = require('./dirs');
+const common = require('./webpack.common.js');
 
 module.exports = merge.smart(common, {
-    mode: "production",
+    mode: 'production',
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
@@ -25,34 +24,33 @@ module.exports = merge.smart(common, {
             }),
         ],
     },
-
-    devtool: "hidden-source-map",
-
+    devtool: 'hidden-source-map',
     output: {
-        path: dirs.DEST,
-        filename: "bundle.js",
+        path: dirs.DIST,
+        filename: 'bundle.js',
     },
-
     plugins: [
-        new ForkTsCheckerWebpackPlugin({
-        }),
+        new ForkTsCheckerWebpackPlugin({}),
         new MiniCssExtractPlugin({
-            path: dirs.DEST,
-            filename: "bundle.css",
+            path: dirs.DIST,
+            filename: 'bundle.css',
         }),
         new webpack.BannerPlugin({
             banner: `time: ${new Date().toLocaleString()}`,
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
-            cssProcessor: require("cssnano"),
+            cssProcessor: require('cssnano'),
             cssProcessorPluginOptions: {
-                preset: ["default", {
-                    discardComments: {
-                        removeAll: true,
+                preset: [
+                    'default',
+                    {
+                        discardComments: {
+                            removeAll: true,
+                        },
+                        normalizeUnicode: false,
                     },
-                    normalizeUnicode: false,
-                }],
+                ],
             },
             canPrint: true,
         }),
