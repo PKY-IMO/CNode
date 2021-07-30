@@ -1,9 +1,12 @@
-const path = require("path");
+const path = require('path');
+
+const resolve = dirpath => path.resolve(__dirname, dirpath);
+
 module.exports = {
-    DEST: path.resolve(__dirname, "../dist"),
-    NODE_MODULES: path.resolve(__dirname, "../node_modules"),
-    PRIVATE: path.resolve(__dirname, "../private"),
-    BABEL_CONFIG: path.resolve(__dirname, "../babel.config.js"),
-    IE8_BABEL_CONFIG: path.resolve(__dirname, "../babel.config.ie8.js"),
-    SRC: path.resolve(__dirname, "../src"),
+    NODE_MODULES: resolve('../node_modules'),
+    DIST: resolve('../dist'),
+    SRC: resolve('../src'),
+    PRIVATE: resolve('../private'),
+    INDEX: resolve('../index.html'),
+    BABEL_CONFIG: resolve('../babel.config.js'),
 };
