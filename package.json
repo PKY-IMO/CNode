@@ -19,7 +19,7 @@
     "@fui/babel-preset-fineui": "^1.0.0",
     "@fui/eslint-plugin": "^1.0.7",
     "@fui/typescript-configs": "^1.0.1",
-    "@types/jest": "24.0.11",
+    "@types/jest": "^24.0.11",
     "autoprefixer": "9.6.1",
     "babel-loader": "8.0.6",
     "babel-plugin-transform-runtime": "6.23.0",

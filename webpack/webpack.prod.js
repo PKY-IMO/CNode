@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
 const dirs = require('./dirs');
 const common = require('./webpack.common.js');
 
@@ -26,13 +25,13 @@ module.exports = merge.smart(common, {
     },
     devtool: 'hidden-source-map',
     output: {
-        path: dirs.DIST,
+        path: dirs.DEST,
         filename: 'bundle.js',
     },
     plugins: [
         new ForkTsCheckerWebpackPlugin({}),
         new MiniCssExtractPlugin({
-            path: dirs.DIST,
+            path: dirs.DEST,
             filename: 'bundle.css',
         }),
         new webpack.BannerPlugin({

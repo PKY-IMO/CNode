@@ -1,6 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const AutoPrefixer = require('autoprefixer');
-
 const dirs = require('./dirs');
 
 module.exports = {
@@ -13,6 +12,12 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
             '@': dirs.SRC,
+            '@app': dirs.SRC_MODULES_APP,
+            '@base': dirs.SRC_MODULES_BASE,
+            '@card': dirs.SRC_MODULES_CARD,
+            '@core': dirs.SRC_MODULES_CORE,
+            '@service': dirs.SRC_MODULES_SERVICE,
+            '@types': dirs.SRC_MODULES_TYPES,
         },
     },
     stats: {
