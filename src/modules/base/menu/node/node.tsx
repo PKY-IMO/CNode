@@ -1,4 +1,4 @@
-import { IconChangeButton } from '@fui/core';
+import { NodeButton, IconChangeButton } from '@fui/core';
 import { shortcut } from '@core/decorator';
 import { MenuItem } from '../item/item';
 import './node.less';
@@ -16,7 +16,7 @@ export const ARROW_CLASSES_MAP = {
 export class MenuNode extends BI.NodeButton {
     static xtype = 'app.base.menu_node';
 
-    public props: MenuNodeProps = {
+    public props: MenuNodeProps & NodeButton['props'] = {
         baseCls: 'app-base-menu-node bi-list-item',
         height: 36,
         open: false,
@@ -52,7 +52,7 @@ export class MenuNode extends BI.NodeButton {
                             ref={ref => {
                                 this.arrowRef = ref;
                             }}
-                            cls="arrow"
+                            iconCls="arrow"
                         />,
                     ],
                 }}

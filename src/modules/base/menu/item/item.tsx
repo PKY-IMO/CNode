@@ -1,4 +1,4 @@
-import { Widget } from '@fui/core';
+import { Widget, BasicButton } from '@fui/core';
 import { shortcut } from '@core/decorator';
 import { MenuItemStyle } from '../menu';
 import './item.less';
@@ -10,7 +10,7 @@ import './item.less';
 export class MenuItem extends BI.BasicButton {
     static xtype = 'app.base.menu_item';
 
-    public props: MenuItemProps = {
+    public props: MenuItemProps & BasicButton['props'] = {
         baseCls: 'app-base-menu-item',
         value: '',
         text: '',

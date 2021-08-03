@@ -1,3 +1,4 @@
+import { BasicButton } from '@fui/core';
 import { shortcut } from '@core/decorator';
 import { NavItemStyle, NAV_ITEM_STYLE_CLASSES_MAP } from '../nav';
 import './item.less';
@@ -10,7 +11,7 @@ export class NavItem extends BI.BasicButton {
         CLOSE: 'EVENT_CLOSE',
     };
 
-    public props: NavItemProps = {
+    public props: NavItemProps & BasicButton['props'] = {
         baseCls: 'app-base-nav-item bi-split-left bi-split-right',
         value: '',
         text: '',

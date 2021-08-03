@@ -1,10 +1,11 @@
 import { model, Model } from '@core/decorator';
+import LayoutModel from '../layout.model';
 
 @model()
 export default class LayoutContentModel extends Model<{
     types: {
-        openedCards: string[];
-        activeCard: string;
+        openedCards: LayoutModel['TYPE']['openedCards'];
+        activeCard: LayoutModel['TYPE']['activeCard'];
     };
     context: LayoutContentModel['context'];
 }> {
