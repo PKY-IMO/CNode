@@ -68,6 +68,6 @@ export class Demo extends BI.Widget {
 }
 
 interface DeomProps {
+    baseCls: string;
     cardName: string;
-    [key: string]: any;
 }

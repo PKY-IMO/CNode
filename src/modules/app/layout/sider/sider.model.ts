@@ -37,6 +37,7 @@ export default class LayoutSiderModel extends Model<{
          */
         closeAllCards: () => {
             this.model.openedCards = [];
+            this.model.activeCard = '';
         },
     };
 }

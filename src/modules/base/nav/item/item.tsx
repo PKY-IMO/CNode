@@ -42,9 +42,9 @@ export class NavItem extends BI.BasicButton {
 }
 
 interface NavItemProps {
+    baseCls: string;
     value: string;
     text: string;
     closable: boolean;
     style: NavItemStyle;
-    [key: string]: any;
 }

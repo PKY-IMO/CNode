@@ -169,6 +169,6 @@ export class Todolist extends BI.Widget {
 }
 
 interface TodolistProps {
+    baseCls: string;
     storageKey: string;
-    [key: string]: any;
 }

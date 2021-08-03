@@ -33,6 +33,7 @@ export class Menu extends BI.Widget {
 
     public props: MenuProps = {
         baseCls: 'app-base-menu',
+        value: '',
         itemInfos: [],
         itemStyle: MenuItemStyle.Main,
     };
@@ -84,11 +85,12 @@ export class Menu extends BI.Widget {
      * @param value 要设置的value值
      */
     public setValue(value: string) {
+        this.options.value = value;
         this.menuRef.setValue(value);
     }
 
     public render() {
-        const { itemStyle } = this.options;
+        const { itemStyle, value } = this.options;
         const menuItems = this.getMenuItems();
         const vgap = itemStyle === MenuItemStyle.Main ? 24 : 0;
 
@@ -100,6 +102,7 @@ export class Menu extends BI.Widget {
                 expander={<BI.Expander isDefaultInit={false} popup={<BI.CustomTree />} />}
                 el={<BI.ButtonTree layouts={[<BI.VerticalLayout vgap={vgap} />]} chooseType={BI.Selection.Single} />}
                 items={menuItems}
+                value={value}
                 listeners={[
                     {
                         eventName: BI.CustomTree.EVENT_CHANGE,
@@ -115,7 +118,8 @@ export class Menu extends BI.Widget {
 }
 
 interface MenuProps {
+    baseCls: string;
+    value: string;
     itemInfos: MenuItemInfo[];
     itemStyle: MenuItemStyle;
-    [key: string]: any;
 }

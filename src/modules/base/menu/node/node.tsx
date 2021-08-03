@@ -62,10 +62,11 @@ export class MenuNode extends BI.NodeButton {
 }
 
 interface MenuNodeProps {
+    baseCls: string;
+    height: number;
     value: string;
     text: string;
     icon: string;
     level: number;
     children: (MenuNode | MenuItem)[];
-    [key: string]: any;
 }

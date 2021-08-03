@@ -111,7 +111,7 @@ export class TodolistList extends BI.Widget {
 }
 
 interface TodolistListProps {
+    baseCls: string;
     title: string;
     itemInfos: TodolistItemInfo[];
-    [key: string]: any;
 }

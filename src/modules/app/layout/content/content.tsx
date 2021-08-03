@@ -101,22 +101,19 @@ export class LayoutContent extends BI.Widget {
      * 根据当前激活卡片的value更新导航组件的值
      */
     private updateNavValue() {
-        const { activeCard } = this.model;
-        this.navRef.setValue(activeCard);
+        this.navRef.setValue(this.model.activeCard);
     }
 
     public init() {
         this.initContentsMap([{ value: '', text: 'blank', icon: '' }, ...ROUTE_INFOS], false);
     }
 
-    public mounted() {
-        const defaultNavValue = ROUTE_INFOS[0].value;
-        this.navRef.setValue(defaultNavValue);
-        this.navRef.fireEvent(Nav.EVENT.CHANGE, defaultNavValue);
-    }
-
     public render() {
         const { NAV_HEIGHT } = LayoutConstant;
+        const navValue = ROUTE_INFOS[0].value;
+        const navItemInfo = this.contentsMap[navValue];
+        const navItemType = navItemInfo.type as RouteType;
+        const navItemStyle = ROUTE_TYPE_NAV_ITEM_STYLE_MAP[navItemType];
 
         return (
             <BI.VTapeLayout>
@@ -126,6 +123,9 @@ export class LayoutContent extends BI.Widget {
                     }}
                     cls="nav bi-background"
                     height={NAV_HEIGHT}
+                    itemInfos={[navItemInfo]}
+                    itemStyle={navItemStyle}
+                    value={ROUTE_INFOS[0].value}
                     listeners={[
                         {
                             eventName: Nav.EVENT.CHANGE,
@@ -148,7 +148,7 @@ export class LayoutContent extends BI.Widget {
                     }}
                     cls="card bi-card"
                     cardCreator={key => this.contentsMap[key].card}
-                    showIndex=""
+                    showIndex={ROUTE_INFOS[0].value}
                 />
             </BI.VTapeLayout>
         );

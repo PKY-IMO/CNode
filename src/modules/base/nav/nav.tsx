@@ -33,6 +33,8 @@ export class Nav extends BI.Widget {
 
     public props: NavProps = {
         baseCls: 'app-base-nav',
+        height: 36,
+        value: '',
         itemInfos: [],
         itemStyle: NavItemStyle.Block,
     };
@@ -94,10 +96,12 @@ export class Nav extends BI.Widget {
      * @param value 要设置的value值
      */
     public setValue(value: string) {
+        this.options.value = value;
         this.navRef.setValue(value);
     }
 
     public render() {
+        const { value } = this.options;
         const navItems = this.getNavItems();
 
         return (
@@ -115,13 +119,16 @@ export class Nav extends BI.Widget {
                     },
                 ]}
                 items={navItems}
+                value={value}
             />
         );
     }
 }
 
 interface NavProps {
+    baseCls: string;
+    height: number;
+    value: string;
     itemInfos: NavItemInfo[];
     itemStyle: NavItemStyle;
-    [key: string]: any;
 }

@@ -27,8 +27,8 @@ export class MenuItem extends BI.BasicButton {
         const { text, icon } = this.options;
 
         return (
-            <BI.VerticalLayout cls="app-base-menu-item-main app-list-item-border-left" height={72}>
-                <BI.IconLabel cls={`icon ${icon}`} height={48} />
+            <BI.VerticalLayout cls="app-base-menu-item-main app-list-item-border-left">
+                <BI.IconLabel cls={`icon ${icon} icon-size-30`} height={48} />
                 <BI.Label cls="text" text={text} height={24} />
             </BI.VerticalLayout>
         );
@@ -62,10 +62,10 @@ export class MenuItem extends BI.BasicButton {
 }
 
 interface MenuItemProps {
+    baseCls: string;
     value: string;
     text: string;
     icon: string;
     level: number;
     style: MenuItemStyle;
-    [key: string]: any;
 }

@@ -1,4 +1,5 @@
 import { model, Model } from '@core/decorator';
+import { ROUTE_INFOS } from '@/routes';
 
 @model()
 export default class LayoutModel extends Model {
@@ -8,8 +9,8 @@ export default class LayoutModel extends Model {
 
     public state(): LayoutModelState {
         return {
-            openedCards: [],
-            activeCard: '',
+            openedCards: [ROUTE_INFOS[0].value],
+            activeCard: ROUTE_INFOS[0].value,
         };
     }
 }

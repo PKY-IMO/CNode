@@ -22,6 +22,6 @@ export class Home extends BI.Widget {
 }
 
 interface HomeProps {
+    baseCls: string;
     cardName: string;
-    [key: string]: any;
 }
