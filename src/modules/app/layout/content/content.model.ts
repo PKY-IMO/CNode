@@ -25,7 +25,6 @@ export default class LayoutContentModel extends Model<{
          * 关闭card
          * @param value 要关闭的card的key
          */
-        // 关闭card
         closeCard: (value: string) => {
             // 获取要关闭card在已打开cards中的下标
             const index = BI.indexOf(this.model.openedCards, value);

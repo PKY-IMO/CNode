@@ -34,6 +34,7 @@ export class MenuNode extends BI.NodeButton {
      * @param opened 要设置的展开情况，ture表示展开，false表示折叠
      */
     public setOpened(opened: boolean) {
+        Object.getPrototypeOf(MenuNode).prototype.setOpened.call(this, opened);
         const arrowCls = ARROW_CLASSES_MAP[opened ? 'expand' : 'collapse'];
         this.arrowRef.setIcon(arrowCls);
     }
