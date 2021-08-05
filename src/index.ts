@@ -1,5 +1,4 @@
-import Layout from '@/module/layout';
-
+import Layout from '@app/layout/layout';
 import './index.less';
 
 BI.createWidget({

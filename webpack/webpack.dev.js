@@ -1,11 +1,8 @@
-const path = require('path');
-
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
 const dirs = require('./dirs');
 const common = require('./webpack.common.js');
 
@@ -13,19 +10,19 @@ module.exports = merge(common, {
     devtool: 'eval-source-map',
     entry: {},
     output: {
-        path: dirs.DIST,
+        path: dirs.DEST,
         filename: '[name].[contenthash].js',
     },
     devServer: {
         open: true,
-        contentBase: path.join(__dirname, '..'),
-        port: 2333,
+        contentBase: dirs.CONTENT_BASE,
+        port: 8080,
         liveReload: true,
     },
     plugins: [
         new ForkTsCheckerWebpackPlugin({}),
         new MiniCssExtractPlugin({
-            path: dirs.DIST,
+            path: dirs.DEST,
             filename: '[contenthash].css',
         }),
         new HtmlWebpackPlugin({
