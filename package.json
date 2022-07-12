@@ -13,7 +13,8 @@
     "prettier": "prettier --write \"./**/*.{js,ts,jsx,tsx,less}\""
   },
   "dependencies": {
-    "@fui/core": "^2.0.0"
+    "@fui/core": "^2.0.0",
+    "axios": "^0.27.2"
   },
   "devDependencies": {
     "@fui/babel-preset-fineui": "^1.0.0",

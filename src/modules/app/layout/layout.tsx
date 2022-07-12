@@ -1,16 +1,18 @@
 import { shortcut, store } from '@core/decorator';
 import { LayoutHeader } from './header/header';
-import { LayoutSider } from './sider/sider';
-import { LayoutContent } from './content/content';
-import LayoutConstant from './layout.constant';
+import { Home } from './main/home/home';
+import { Start } from './main/start/start';
+import { API } from './main/api/api';
+import { Main } from './main/main';
+import { Footer } from './footer/footer';
 import LayoutModel from './layout.model';
+
 import './layout.less';
 
 /**
  * 应用布局
  */
 @shortcut()
-@store(LayoutModel)
 export default class Layout extends BI.Widget {
     static xtype = 'app.layout';
 
@@ -19,16 +21,13 @@ export default class Layout extends BI.Widget {
     };
 
     public render() {
-        const { HEADER_HEIGHT, MAIN_MENU_WIDTH, SUB_MENU_WIDTH } = LayoutConstant;
 
         return (
-            <BI.VTapeLayout rowSize={[HEADER_HEIGHT, 'fill']}>
-                <LayoutHeader />
-                <BI.HTapeLayout cls="app-layout-body" columnSize={[MAIN_MENU_WIDTH + SUB_MENU_WIDTH, 'fill']}>
-                    <LayoutSider />
-                    <LayoutContent />
-                </BI.HTapeLayout>
-            </BI.VTapeLayout>
+            <BI.VerticalLayout cls='app-layout'>
+                <LayoutHeader/>
+                <Home />
+                <Footer />
+            </BI.VerticalLayout>
         );
     }
 }

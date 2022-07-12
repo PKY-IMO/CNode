@@ -1,0 +1,45 @@
+@import '~@/index.less';
+
+.app-layout-blogs {
+  background-color: #fff;
+  font-size: 14px;
+  color: #80bd01;
+  border-radius: 4px;
+  .nav {
+    background-color: #f6f6f6;
+  }
+  .btn {
+    color: #80bd01;
+    background-color: #f6f6f6;
+    &:hover {
+      color: #08c;
+    }
+  }
+  .btn-active {
+    color: #fff;
+    border: 2px solid #80bd01;
+    background-color: #80bd01;
+    border-radius: 2px;
+  }
+  .pager {
+    font-size: 14px;
+    color: #778087;
+    & > div {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .active {
+      background-color: #fff;
+      color: #80bd01;
+    }
+    .bi-basic-button.hover {
+      background-color: #f5f5f5;
+    }
+    .bi-basic-button {
+      border-right: 1px solid #ddd;
+    }
+    .bi-basic-button:last-child {
+      border-right: none;
+    }
+  }
+}

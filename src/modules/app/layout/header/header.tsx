@@ -1,5 +1,6 @@
 import { shortcut } from '@core/decorator';
 import LayoutConstant from '../layout.constant';
+import { Menu } from '../menu/menu';
 import './header.less';
 
 // 测试用的用户信息
@@ -20,40 +21,31 @@ export class LayoutHeader extends BI.Widget {
     };
 
     public render() {
-        const { APP_TITLE_TEXT, MAIN_MENU_WIDTH, HEADER_HEIGHT } = LayoutConstant;
+        const {HEADER_HEIGHT, HEADER_WIDTH, HEADER_MENU_TEXT } = LayoutConstant;
 
         return (
-            <BI.LeftRightVerticalAdaptLayout
-                rhgap={24}
-                items={{
-                    left: [
-                        <BI.CenterAdaptLayout cls="logo bi-high-light-background" width={MAIN_MENU_WIDTH} height={HEADER_HEIGHT}>
-                            <BI.IconLabel cls="logo-background" width={32} height={32} />
-                        </BI.CenterAdaptLayout>,
-                        <BI.Text cls="title" hgap={8} text={APP_TITLE_TEXT} />,
-                    ],
-                    right: [
-                        <BI.IconButton
-                            cls="toast-success-font"
-                            width={24}
-                            handler={() => {
-                                BI.Msg.toast(`您点击了第一个图标`);
-                            }}
-                        />,
-                        <BI.IconButton
-                            cls="toast-error-font"
-                            width={24}
-                            handler={() => {
-                                BI.Msg.toast(`您点击了第二个图标`);
-                            }}
-                        />,
-                        <BI.VerticalAdaptLayout cls="user">
-                            <BI.Img cls="avatar" width={24} rgap={8} src={userInfo.avatarSrc} />
-                            <BI.Text cls="name" text={userInfo.name} />
-                        </BI.VerticalAdaptLayout>,
-                    ],
-                }}
+            <BI.HorizontalAdaptLayout cls="app-layout-header"
+                items={[
+                    <BI.LeftRightVerticalAdaptLayout
+                    cls="container"
+                    items={{
+                        left: [
+                            <BI.CenterAdaptLayout cls="logo" width={160} height={50}>
+                                <BI.IconLabel cls="logo-background" width={120} height={28} />
+                            </BI.CenterAdaptLayout>,
+                            <BI.VerticalAdaptLayout cls="search" width={233} height={26} tgap={2}>
+                                <BI.IconLabel cls="search-font" lgap={5} rgap={2} height={20}></BI.IconLabel>
+                                <BI.Input width={200} height={20}></BI.Input>
+                            </BI.VerticalAdaptLayout>
+                        ],
+                        right: [
+                            <Menu/>
+                        ],
+                    }}
+                />
+                ]}
             />
+
         );
     }
 }

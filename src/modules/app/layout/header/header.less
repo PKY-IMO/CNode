@@ -1,7 +1,18 @@
 @import '~@/index.less';
 
 .app-layout-header {
-  .box-shadow(0 0 10px, rgba(@background-color-black, 10%));
+  background-color: #444;
+  .container {
+    max-width: 1380px;
+    min-width: 960px;
+  }
+  .search {
+    background-color: #888;
+    border-radius: 13px;
+    &:hover {
+      background-color: #fff;
+    }
+  }
   .logo {
   }
   .title {
