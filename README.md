@@ -1,20 +1,19 @@
 # README
 
+## 完成内容
+首页、新手入门、API
+
 ## 准备工作
 
 ### 克隆仓库
 
 ```shell
-git clone https://code.fineres.com/scm/fui/fineui-starter.git
+git clone git@github.com:PKY-IMO/CNode.git
 ```
 
 ### 安装依赖
 
 ```shell
-# 账户：public
-# 密码：fr123456
-# 邮箱：任意
-npm adduser --registry https://npm.fineres.com
 npm install
 ```
 
@@ -57,7 +56,3 @@ npm run stylelint:fix
 # 代码格式
 npm run prettier
 ```
-
-## 效果预览
-
-![页面截图](./screenshots/demo.jpeg)
