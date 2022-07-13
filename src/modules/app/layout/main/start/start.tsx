@@ -1,10 +1,7 @@
 import { shortcut } from '@core/decorator';
 import { Login } from '../../../../base/login/login';
-import { Topic } from '../../../../base/topic/topic';
-import { Rank } from '../../../../base/rank/rank';
 import { Community } from '../../../../base/community/community';
 import { Code } from '../../../../base/code/code';
-import { Blogs } from '../../blogs/blogs';
 import { Bar } from '../../bar/bar';
 import { Card } from './card/card';
 import './start.less';
@@ -38,10 +35,11 @@ export class Start extends BI.Widget {
                                     <BI.HorizontalLayout  height={25}>
                                         <BI.Label text='新手搭建 Node.js 服务器，推荐使用无需备案的 ' textAlign='left'/>
                                         <BI.A
-                                        cls='site'
+
                                         el={{
                                             type: "bi.label",
                                             textAlign: "left",
+                                            cls: 'link',
                                             text: "DigitalOcean(https://www.digitalocean.com/)",
                                             href: "https://www.digitalocean.com/"}}/>
                                     </BI.HorizontalLayout>

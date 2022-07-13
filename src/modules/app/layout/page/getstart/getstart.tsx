@@ -1,8 +1,7 @@
-import { shortcut, store } from '@core/decorator';
+import { shortcut} from '@core/decorator';
 import { LayoutHeader } from '../../header/header';
 import { Start } from '../../main/start/start';
 import { Footer } from '../../footer/footer';
-import LayoutModel from '../../layout.model';
 
 import '../../layout.less';
 

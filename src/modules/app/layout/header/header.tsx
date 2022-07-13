@@ -1,13 +1,12 @@
 import { shortcut } from '@core/decorator';
-import LayoutConstant from '../layout.constant';
 import { Menu } from '../menu/menu';
 import './header.less';
 
 // 测试用的用户信息
-const userInfo = {
-    name: 'Finer',
-    avatarSrc: 'https://code.fanruan.com/img/gitea-sm.png',
-};
+// const userInfo = {
+//     name: 'Finer',
+//     avatarSrc: 'https://code.fanruan.com/img/gitea-sm.png',
+// };
 
 /**
  * 应用布局的顶栏，包括应用logo、标题和用户信息
@@ -21,7 +20,7 @@ export class LayoutHeader extends BI.Widget {
     };
 
     public render() {
-        const {HEADER_HEIGHT, HEADER_WIDTH, HEADER_MENU_TEXT } = LayoutConstant;
+        // const {HEADER_HEIGHT, HEADER_WIDTH, HEADER_MENU_TEXT } = LayoutConstant;
 
         return (
             <BI.HorizontalAdaptLayout cls="app-layout-header"

@@ -1,5 +1,4 @@
 import { shortcut } from '@core/decorator';
-import LayoutConstant from '../layout.constant';
 import './menu.less';
 
 @shortcut()
@@ -11,7 +10,7 @@ export class Menu extends BI.Widget {
     };
 
     public render() {
-        const { HEADER_MENU_TEXT } = LayoutConstant;
+        // const { HEADER_MENU_TEXT } = LayoutConstant;
         return (
             <BI.VerticalAdaptLayout
             width={330}

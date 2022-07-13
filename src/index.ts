@@ -1,4 +1,3 @@
-import Layout from '@app/layout/layout';
 import { routes } from './route';
 import './index.less';
 import axios from "axios";

@@ -26,18 +26,11 @@ export class Blog extends BI.Widget {
 
     public render() {
         const {
-            blogId,
-            blogType,
             blogVisit,
             blogReply,
             blogTitle,
             blogDate,
-            userId,
-            userName,
-            replyImgHref,
             avatarImgHref,
-            topBlog,
-            good,
             blogTag } = this.options;
         return (
                 <BI.LeftRightVerticalAdaptLayout
@@ -70,7 +63,6 @@ export class Blog extends BI.Widget {
                             </BI.VerticalAdaptLayout>,
                             <BI.A
                             lgap={5}
-                            width={300}
                             height={30}
                             el={{
                                 type: "bi.default",
